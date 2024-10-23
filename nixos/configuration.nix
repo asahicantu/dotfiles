@@ -18,13 +18,21 @@
       ./modules/program_config.nix
     ];
 
+
   # The Latest Mainline Linux Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Bootloader.
-  boot.kernelParams = [ "fsync=1" ];
   boot.loader.systemd-boot.enable = true;
+  boot.kernelParams = [ "fsync=1" ];
   boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelModules = [ "snd_hda_intel" ];
+  };
+
+
+  # Hardware settings
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   powerManagement.enable = true;
 
@@ -45,16 +53,6 @@
   services.blueman.enable = true;
   services.printing.enable = false;
 
-  # Hardware settings
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
@@ -72,6 +70,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
