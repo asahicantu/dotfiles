@@ -16,7 +16,7 @@
     };
   };
 
-    programs.nh = {
+  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 30d --keep 30";
@@ -44,16 +44,16 @@
     };
 
 
-  programs.auto-cpufreq.enable = true;
-  programs.auto-cpufreq.settings = {
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
+#   programs.auto-cpufreq.enable = true;
+#   programs.auto-cpufreq.settings = {
+#     charger = {
+#       governor = "performance";
+#       turbo = "auto";
+#     };
 
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-  };
+#     battery = {
+#       governor = "powersave";
+#       turbo = "never";
+#     };
+#   };
 }
