@@ -16,6 +16,14 @@
     };
   };
 
+    programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 30d --keep 30";
+    flake = "/home/asahi/.config/nix/";
+  };
+
+
   programs.dconf.enable = true;
 
 
