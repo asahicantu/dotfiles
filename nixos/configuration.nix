@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/env
-      ./modules/sound.nix
+      ./modules/audio.nix
+      ./modules/fonts.nix
       ./modules/greeter.nix
       ./modules/locale.nix
       ./modules/network.nix
@@ -53,7 +54,7 @@
     layout = "us";
     variant = "";
   };
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
