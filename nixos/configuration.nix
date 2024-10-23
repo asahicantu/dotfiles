@@ -15,7 +15,6 @@
       ./modules/locale.nix
       ./modules/network.nix
       ./modules/packages.nix
-      ./modules/power-policy.nix
       ./modules/program_config.nix
     ];
 
@@ -27,6 +26,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  powerManagement.enable = true;
 
   # DISPLAY SETTINGS
   # Enable the KDE Plasma Desktop Environment.
