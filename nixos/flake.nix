@@ -35,10 +35,16 @@
                ./configuration.nix
                ./hardware-configuration.nix
                ./modules/bootloader.nix
+	       ./modules/network.nix
                ./modules/bluetooth.nix
+	       ./modules/fonts.nix
+	       ./modules/theme.nix
                ./modules/users.nix
-               ./modules/gnome.nix
-               ./modules/packages.nix
+	       ./modules/nvidia.nix
+               #./modules/gnome.nix
+	       ./modules/hyprland.nix
+               ./modules/services.nix
+		./modules/packages.nix
                auto-cpufreq.nixosModules.default
              ];
         };
